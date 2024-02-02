@@ -2,7 +2,7 @@ import pandas as pd
 import re
 
 # Caminho para o arquivo Excel
-caminho_excel = '/caminho/para/seu/arquivo_excel.xlsx'
+caminho_excel = '/home/david/autom/arquivo_excel.xlsx'
 
 # Ler o arquivo Excel
 df = pd.read_excel(caminho_excel)
