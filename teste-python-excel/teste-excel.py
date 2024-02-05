@@ -1,5 +1,5 @@
 import pandas as pd
-
+import shapely as shp
 # Definição do Dicionário de Mapeamento
 mapeamento = {'AB': 'Traducao_AB', 'CD': 'Traducao_CD'}
 
