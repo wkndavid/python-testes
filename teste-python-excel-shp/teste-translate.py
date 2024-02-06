@@ -21,7 +21,7 @@ for coluna in gdf.columns:
     if coluna in dicionario:
         # Aplicar regex ou substituição conforme necessário
         for valor_antigo, novo_valor in dicionario[coluna].items():
-            gdf[coluna] = gdf[coluna].replace({valor_antigo: novo_valor}, regex=True)
+            gdf[coluna] = gdf[coluna].replace({valor_antigo: novo_valor}, regex=True)#
 
 # Mostrar o GeoDataFrame após a manipulação
 print("GeoDataFrame após a manipulação:")

@@ -2,11 +2,11 @@ import pandas as pd
 import re
 
 # Dicionário de Traduções
-traducoes = {'word1': 'traducao1', 'word2': 'traducao2', 'word3': 'traducao3'}
-padrao_tamanho_minimo = 3
+traducoes = {'SAIN': 'teste-teste ', 'SH': 'teste-sh-sh', 'SETOR': 'traducao-teste-3'}
+padrao_tamanho_minimo = 4
 
 # Caminho para o arquivo Excel
-caminho_excel = '/caminho/para/seu/arquivo_excel.xlsx'
+caminho_excel = '/home/david/autom/teste-excel.xlsx'
 
 # Ler o arquivo Excel
 df = pd.read_excel(caminho_excel)
