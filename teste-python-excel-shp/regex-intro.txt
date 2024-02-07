@@ -1,0 +1,13 @@
+\B => '\BpalavraParaAferir' : para string que nao começa e nem termina e sim no meio;
+
+palavraParaAferir\B : em todo lugar menos no "inicio e no fim"
+
+\A => '\ApalavraParaAferir' : retona o resultado do inicio da string
+
+
+[DIGÍTOS]
+
+
+\d : checa a string se tem dígitos;
+
+\D : checa a string se não tem dígitos;
