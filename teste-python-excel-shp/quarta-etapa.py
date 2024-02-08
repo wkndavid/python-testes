@@ -264,6 +264,7 @@ traducoes = {
     'EPPR' : 'Estrada Parque Paranoá',
     'EPTG' : 'Estrada Parque Taguatinga',
     'EPTM' : 'Estrada Parque Tamanduá',
+    'ERR' : 'Eixo Rodoviária-Residencial',
     'PEVC' : 'Parque Ecológico e Vivencial da Candangolândia',
     'Q ' : 'QUADRA',
     'QD ' : 'QUADRA',
