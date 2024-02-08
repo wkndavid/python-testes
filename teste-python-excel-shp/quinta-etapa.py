@@ -1,10 +1,14 @@
 import pandas as pd
 import re
-# Seu DataFrame (substitua isso pelo caminho do seu arquivo CSV ou Excel)
-caminho_arquivo = '/home/david/autom/teste-excel.xlsx'  # ou 'caminho/do/seu/arquivo.xlsx'
-df = pd.read_csv(caminho_arquivo) if caminho_arquivo.endswith('.csv') else pd.read_excel(caminho_arquivo)
 
-# Dicionário de traduções (substitua isso pelo seu dicionário)
+# Função para traduzir uma palavra usando um dicionário
+def traduzir_palavra(palavra, dicionario):
+    return dicionario.get(palavra, palavra)
+
+# Substitua 'sua_planilha.xlsx' pelo caminho correto do seu arquivo xlsx
+df = pd.read_excel('/home/david/autom/teste-python-excel-shp/teste-excel.xlsx', engine='openpyxl')
+
+# Dicionário de traduções
 traducoes = {
     'SH' : 'Setor Habitacional',
     'ACR' :'Abrigo Cristo Redentor',
@@ -276,23 +280,10 @@ traducoes = {
     'SH' : 'SETOR HABITACIONAL',
     'AC' : 'ÁREA COMPLEMENTAR',
     'GMT' : 'Granja Modelo do Torto'
-},
+}
 
-#
+# Aplica a tradução à coluna 'se_setor'
+df['new'] = df['se_setor'].apply(lambda x: ' '.join(traduzir_palavra(palavra, traducoes) for palavra in re.findall(r'\b\w+\b', str(x)))).str.upper()
 
-df['exemplo_traduzido'] = df['se_setor'].replace(traducoes).str.upper()
-
-def traduzir(match):
-    chave = match.group(1).upper()  # Garante que a chave esteja em maiúsculas
-    return traducoes.get(chave, chave)
-
-# Substituir valores nas células que têm palavras para traduzir
-df['Endereco'] = df['Endereco'].replace(re.compile(r'\b([A-Za-z]{2,})\b'), traduzir, regex=True)
-
-# Criar um novo arquivo com sufixo "_traduzido"
-novo_caminho_arquivo = caminho_arquivo.replace('.csv', 'teste-traduzido.csv') if caminho_arquivo.endswith('.csv') else caminho_arquivo.replace('.xlsx', 'new-teste-traduzido.xlsx')
-df.to_csv(novo_caminho_arquivo, index=False) if caminho_arquivo.endswith('.csv') else df.to_excel(novo_caminho_arquivo, index=False)
-
-# Exibir mensagem quando o processo estiver concluído
-print(f"Tradução concluída. Novo arquivo salvo em: {novo_caminho_arquivo}")
-print(novo_caminho_arquivo)
+# Salva o DataFrame atualizado em um novo arquivo xlsx
+df.to_excel('/home/david/autom/teste-python-excel-shp/teste-excel-traduzido.xlsx', index=False)

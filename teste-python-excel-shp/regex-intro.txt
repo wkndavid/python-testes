@@ -7,7 +7,6 @@ palavraParaAferir\B : em todo lugar menos no "inicio e no fim"
 
 [DIGÍTOS]
 
-
 \d : checa a string se tem dígitos;
 
 \D : checa a string se não tem dígitos;
