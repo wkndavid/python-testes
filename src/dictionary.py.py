@@ -6,7 +6,7 @@ def traduzir_palavra(palavra, dicionario):
     return dicionario.get(palavra, palavra)
 
 # Substitua 'sua_planilha.xlsx' pelo caminho correto do seu arquivo xlsx
-df = pd.read_excel('/home/david/autom/teste-python-excel-shp/teste-excel.xlsx', engine='openpyxl')
+df = pd.read_excel('/home/david/autom/src/teste.xlsx', engine='openpyxl')
 
 # Dicionário de traduções
 traducoes = {
@@ -324,7 +324,7 @@ traducoes = {
 }
 
 # Aplica a tradução à coluna 'se_setor'
-df['new'] = df['se_setor'].apply(lambda x: ' '.join(traduzir_palavra(palavra, traducoes) for palavra in re.findall(r'\b\w+\b', str(x)))).str.upper()
+df['se_setor'] = df['se_setor'].apply(lambda x: ' '.join(traduzir_palavra(palavra, traducoes) for palavra in re.findall(r'\b\w+\b', str(x)))).str.upper()
 
 # Salva o DataFrame atualizado em um novo arquivo xlsx
-df.to_excel('/home/david/autom/teste-python-excel-shp/teste-excel-traduzido.xlsx', index=False)
+df.to_excel('/home/david/autom/src/traduzido_teste.xlsx', index=False)

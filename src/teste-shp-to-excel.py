@@ -17,4 +17,3 @@ caminho_excel = '/home/david/autom/setor/teste.xlsx'
 
 # Salvar o GeoDataFrame como um arquivo Excel usando o GeoPandas
 gdf.to_excel(caminho_excel, index=False)
-

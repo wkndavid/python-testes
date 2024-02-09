@@ -13,7 +13,7 @@ except UnicodeDecodeError:
         gdf = gpd.read_file(caminho_shapefile, encoding='latin-1')
 
 # Caminho para salvar o arquivo Excel localmente (com a extensão .xlsx)
-caminho_excel = '/home/david/autom/setorteste.xlsx'
+caminho_excel = '/home/david/autom/setor/teste.xlsx'
 
 # Salvar o GeoDataFrame como um arquivo Excel usando o GeoPandas
 gdf.to_excel(caminho_excel, index=False, encoding='utf-8')

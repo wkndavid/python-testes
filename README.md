@@ -2,7 +2,7 @@
 #   
 ### README
 ##      #Modules#
-#  => Install pandas and re
+#  => Install | pandas | re(reGex module) | geopandas 
 # #
 # #     #Dependencies# => Use pip install for install dependencies or global modules
 #  dependencies : {
