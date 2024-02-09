@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 # Seu DataFrame (substitua isso pelo caminho do seu arquivo CSV ou Excel)
-caminho_arquivo = '/home/david/autom/teste-excel.xlsx'  # ou 'caminho/do/seu/arquivo.xlsx'
+caminho_arquivo = '/home/david/autom/teste-excel1.xlsx'  # ou 'caminho/do/seu/arquivo.xlsx'
 df = pd.read_csv(caminho_arquivo) if caminho_arquivo.endswith('.csv') else pd.read_excel(caminho_arquivo)
 
 # Dicionário de traduções (substitua isso pelo seu dicionário)
@@ -107,6 +107,7 @@ traducoes = {
     'SAFN' : 'Setor de Administração Federal Norte ',
     'SAFS' : 'Setor de Administração Federal Sul',
     'SAI' : 'Setor de Áreas Isoladas Sudoeste',
+    'SAI ' : 'Setor de Áreas Isoladas Sudoeste',
     'SAIN' : 'Setor de Áreas Isoladas Norte',
     'SAIS' : 'Setor de Áreas Isoladas Sul',
     'SAM' : 'Setor de Administração Municipal',
@@ -125,6 +126,10 @@ traducoes = {
     'SCLRN' : 'Setor Comercial Local Residencial Norte',
     'SCRS ' : 'Setor Comercial Residencial Sul',
     'SCN' : 'Setor Comercial Norte',
+    'SCN A' : 'Setor Comercial Norte A',
+    'SCN B' : 'Setor Comercial Norte B',
+    'SCN 1' : 'Setor Comercial Norte 1',
+    'SCN 2' : 'Setor Comercial Norte 2',
     'SCLS' : 'Setor Comercial Local Sul',
     'SCLN' : 'Setor Comercial Local Norte',
     'SCS' : 'Setor Comercial Sul',
@@ -187,7 +192,7 @@ traducoes = {
     'SIA' : 'Setor de Indústria e Abastecimento',
     'SIBS' : 'Setor de Indústrias Bernardo Sayão',
     'SIG' : 'Setor de Indústrias Gráficas',
-    'SIN' : 'Setor de Inflamáveis',
+    'SIN' : 'Setor de Inflamaveis',
     'SIT' : 'Setor Invernada do Torto',
     'FAL' : 'Fonte Água Limpa',
     'SMA' : 'Setor de Múltiplas Atividades do Gama',
@@ -201,6 +206,7 @@ traducoes = {
     'SMIS' : 'Setor de Mansões Isoladas Sul',
     'SMLN' : 'Setor de Mansões Lago Norte',
     'SMPW' : 'Setor de Mansões Park Way',
+    'MSPW' : 'Setor de Mansões Park Way',
     'MSPW' : 'Setor de Mansões Park Way',
     'SMU' : 'Setor Militar Urbano',
     'SO' : 'Setor de Oficinas - Norte e Sul',
@@ -282,12 +288,7 @@ traducoes = {
 
 df['exemplo_traduzido'] = df['se_setor'].replace(traducoes).str.upper()
 
-def traduzir(match):
-    chave = match.group(1).upper()  # Garante que a chave esteja em maiúsculas
-    return traducoes.get(chave, chave)
-
 # Substituir valores nas células que têm palavras para traduzir
-df['Endereco'] = df['Endereco'].replace(re.compile(r'\b([A-Za-z]{2,})\b'), traduzir, regex=True)
 
 # Criar um novo arquivo com sufixo "_traduzido"
 novo_caminho_arquivo = caminho_arquivo.replace('.csv', 'teste-traduzido.csv') if caminho_arquivo.endswith('.csv') else caminho_arquivo.replace('.xlsx', 'new-teste-traduzido.xlsx')
