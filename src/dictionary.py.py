@@ -1,7 +1,7 @@
 import pandas as pd
 import re
 
-# Função para traduzir uma palavra usando um dicionário
+# Função para traduzir uma palavra usando o dicionário
 def traduzir_palavra(palavra, dicionario):
     return dicionario.get(palavra, palavra)
 
@@ -320,11 +320,10 @@ traducoes = {
     'Prq': 'Parque',
     'Ed': 'Edifício',
     'Proj': 'Projeção',
-
 }
 
-# Aplica a tradução à coluna 'se_setor'
+# Aplica a tradução à coluna 'se_setor' e aplica as regras de regEx para manipular caracteres específicos...
 df['se_setor'] = df['se_setor'].apply(lambda x: ' '.join(traduzir_palavra(palavra, traducoes) for palavra in re.findall(r'\b\w+\b', str(x)))).str.upper()
 
-# Salva o DataFrame atualizado em um novo arquivo xlsx
+# Salva o DataFrame atualizado em um novo arquivo xlsx já traduzindo o valor das células
 df.to_excel('/home/david/autom/src/traduzido_teste.xlsx', index=False)
