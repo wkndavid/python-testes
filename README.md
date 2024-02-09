@@ -1,6 +1,7 @@
 # python_test_dictionary
 #   
 # README
+# Install python && pip => package installer
 # #Modules#
 #  => Install | pandas | re => reGex module python | geopandas 
 #
